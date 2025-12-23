@@ -1,0 +1,12 @@
+[
+null,
+{"id":1,"atypeId":2,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"HEAVY ARMOR","note":"","params":[0,0,0,3,0,0,-2,0],"price":0},
+{"id":2,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"CRIMSON ROBES","note":"","params":[0,0,0,0,1,1,0,0],"price":0},
+{"id":3,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"LIFE ORB","note":"<Passive State: HP Regeneration>","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":4,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":161,"name":"ENERGY ORB","note":"<Passive State: MP Regeneration>","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":5,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[{"code":14,"dataId":4,"value":1},{"code":14,"dataId":5,"value":1},{"code":14,"dataId":6,"value":1}],"iconIndex":161,"name":"ELEMENTAL ORB","note":"","params":[0,0,0,-2,0,-2,0,0],"price":0},
+{"id":6,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"BODY ORB","note":"<Passive State: Body Buff>","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":7,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"MIND ORB","note":"<Passive State: Mind Buff>","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":8,"atypeId":1,"description":"PLACEHOLDER DESCRIPTION","etypeId":0,"traits":[],"iconIndex":135,"name":"LIGHT BOOTS","note":"<Passive State: Speed Buff>","params":[0,0,0,0,0,0,0,0],"price":0},
+{"id":9,"atypeId":1,"description":"","etypeId":2,"traits":[{"code":22,"dataId":1,"value":0}],"iconIndex":81,"name":"Rocco's Shield","note":"<Battle Commands>\n Attack\n Skill: Furious Strike\n Skill: Speed Buff\n Skill: Sacrifice\n Skill: Shield Guard\n Item\n</Battle Commands>","params":[0,0,0,2,0,2,0,0],"price":0}
+]
