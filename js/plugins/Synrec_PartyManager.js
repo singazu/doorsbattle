@@ -2341,6 +2341,7 @@ Game_Party.prototype.swapMultiParty = function(
     party_id_2, 
     party_index_2,
 ){
+    console.log(...arguments)
     const party_1 = party_id_1 ? this.getMultiParty(party_id_1) : null;
     if(party_1){
         const allow_sw_id = eval(party_1['Allow Party Lead Change']);
@@ -2408,7 +2409,7 @@ Game_Party.prototype.swapMultiParty = function(
     }
     if(party_id_1){
         party_1['Members'] = members_1.filter(Boolean);
-    }else{
+    }else if(party_id_2){
         this._actors = members_1.filter(Boolean);
     }
     if(party_id_1 == party_id_2){
@@ -2431,9 +2432,12 @@ Game_Party.prototype.swapMultiParty = function(
     if(!members_2.includes(member_1)){
         members_2.push(member_1)
     }
+    console.log(member_1, member_2);
+    console.log(party_1_members, party_2_members);
+    console.log(members_1, members_2);
     if(party_id_2){
         party_2['Members'] = members_2.filter(Boolean);
-    }else{
+    }else if(party_id_1){
         this._actors = members_2.filter(Boolean);
     }
     this.removeExcessMultiMembers();
@@ -4294,7 +4298,8 @@ WindowSynrec_PartySelection.prototype.partyMembers = function(){
 }
 
 WindowSynrec_PartySelection.prototype.maxItems = function(){
-    return this.partyMembers().length;
+    const data = this.partyData();
+    return data ? eval(data['Max Members']) : this.partyMembers().length;
 }
 
 WindowSynrec_PartySelection.prototype.setList = function(){
@@ -4489,6 +4494,7 @@ SceneSynrec_PartyEditor.prototype.updateTouchMode = function(){
     const tx = TouchInput.x;
     const ty = TouchInput.y;
     const hold_data = this._hold_data;
+    const chara = this._hold_character;
     if(
         (
             this._tx != tx ||
@@ -4503,6 +4509,9 @@ SceneSynrec_PartyEditor.prototype.updateTouchMode = function(){
         hold_data.from = null;
         hold_data.to = null;
         this._activate_key_window = null;
+        chara.setImage("", 0);
+        this._set_hold_chara = false;
+        this.refreshAll();
         return true;
     }else if(
         (
@@ -4521,6 +4530,9 @@ SceneSynrec_PartyEditor.prototype.updateTouchMode = function(){
         hold_data.keyMode = true;
         hold_data.from = null;
         hold_data.to = null;
+        chara.setImage("", 0);
+        this._set_hold_chara = false;
+        this.refreshAll();
         return false;
     }
 }
@@ -4618,12 +4630,14 @@ SceneSynrec_PartyEditor.prototype.updateToggleWindow = function(){
         if(this._window_index < -1){
             this._window_index = this._party_windows.length - 1;
         }
+        SoundManager.playCursor();
     }
     if(Input.isTriggered('pagedown')){
         this._window_index++;
         if(this._window_index >= this._party_windows.length){
             this._window_index = -1;
         }
+        SoundManager.playCursor();
     }
     const all_windows = this._party_windows.concat(this._actors_window);
     all_windows.forEach((window)=>{
